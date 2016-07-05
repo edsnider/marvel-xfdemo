@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarvelDemo.Views.CharacterView"
+             Title="Character">
+  <ListView x:Name="ComicsListView"
+            ItemsSource="{Binding Comics}"
+            RowHeight="200"
+            ItemSelected="ComicsListView_OnItemSelected">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <Image Source="{Binding Thumbnail.FullPath}"/>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>
