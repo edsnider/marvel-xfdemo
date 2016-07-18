@@ -29,12 +29,35 @@ namespace MarvelDemo.ViewModels
         async Task LoadCharacters()
         {
             Characters = new ObservableCollection<Character>();
-
-            Characters.Add(new Character { Id = 1009368, Name = "Iron Man", IconPath = "ironman_52.png", SeriesId = 2029 });
-            Characters.Add(new Character { Id = 1009220, Name = "Captain America", IconPath = "captainamerica_52.png", SeriesId = 1996 });
-            Characters.Add(new Character { Id = 1009664, Name = "Thor", IconPath = "thor_52.png", SeriesId = 2083 });
-
-            await Task.FromResult(true);
+            
+            // Hard-coded list of Characters instead of pulling from the API so we can get just the specific Avengers we want to display:
+            Characters.Add(new Character
+            {
+                Id = 1009368,
+                Name = "Iron Man",
+                IconPath = "ironman_52.png",
+                SeriesId = 2029,
+                Thumbnail =
+                    new Image {Path = "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55", Extension = "jpg"}
+            });
+            Characters.Add(new Character
+            {
+                Id = 1009220,
+                Name = "Captain America",
+                IconPath = "captainamerica_52.png",
+                SeriesId = 1996,
+                Thumbnail =
+                    new Image {Path = "http://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087", Extension = "jpg"}
+            });
+            Characters.Add(new Character
+            {
+                Id = 1009664,
+                Name = "Thor",
+                IconPath = "thor_52.png",
+                SeriesId = 2083,
+                Thumbnail =
+                    new Image {Path = "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350", Extension = "jpg"}
+            });
         }
     }
 }

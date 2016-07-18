@@ -2,16 +2,17 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MarvelDemo.Views.CharacterView"
-             Title="Character">
+             Title="{Binding Character.Name}">
   <ListView x:Name="ComicsListView"
             ItemsSource="{Binding Comics}"
-            RowHeight="200"
-            ItemSelected="ComicsListView_OnItemSelected">
+            ItemSelected="ComicsListView_OnItemSelected"
+            IsPullToRefreshEnabled="True"
+            RefreshCommand="{Binding LoadComicsCommand}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}">
     <ListView.ItemTemplate>
       <DataTemplate>
-        <ViewCell>
-          <Image Source="{Binding Thumbnail.FullPath}"/>
-        </ViewCell>
+        <TextCell Text="{Binding Title}"
+                  Detail="{Binding IssueNumber, StringFormat='Issue # {0}'}"/>
       </DataTemplate>
     </ListView.ItemTemplate>
   </ListView>

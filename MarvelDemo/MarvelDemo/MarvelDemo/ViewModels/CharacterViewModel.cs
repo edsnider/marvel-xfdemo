@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using MarvelDemo.Models;
 using MarvelDemo.Services;
+using Xamarin.Forms;
 
 namespace MarvelDemo.ViewModels
 {
@@ -35,6 +34,15 @@ namespace MarvelDemo.ViewModels
             }
         }
 
+        ICommand _loadComicsCommand;
+        public ICommand LoadComicsCommand
+        {
+            get
+            {
+                return _loadComicsCommand ?? (_loadComicsCommand = new Command(async () => await LoadComics()));
+            }
+        }
+
         public CharacterViewModel(IMarvelDataService dataService)
         {
             _dataService = dataService;
@@ -42,16 +50,16 @@ namespace MarvelDemo.ViewModels
             Comics = new ObservableCollection<Comic>();
         }
 
-        public async Task Init(Character character)
+        public void Init(Character character)
         {
             if (character == null)
                 throw new ArgumentNullException(nameof(character), "CharacterViewModel requires a non-null Character object to initialize.");
 
             Character = character;
-            await LoadComics(Character.SeriesId);
+            LoadComicsCommand.Execute(null);
         }
 
-        async Task LoadComics(int seriesId)
+        async Task LoadComics()
         {
             if (IsBusy)
                 return;
@@ -62,7 +70,7 @@ namespace MarvelDemo.ViewModels
             {
                 Comics.Clear();
 
-                var comics = await _dataService.GetComicsBySeries(seriesId);
+                var comics = await _dataService.GetComicsBySeries(Character.SeriesId);
 
                 foreach (var c in comics)
                     Comics.Add(c);

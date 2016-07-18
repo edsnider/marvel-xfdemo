@@ -23,20 +23,18 @@ namespace MarvelDemo.Views
             BindingContext = new CharacterViewModel(dataService);
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            await Vm.Init(_character);
+            // HACK: Should happen in a navigation service
+            Vm.Init(_character);
         }
 
         private void ComicsListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var comic = e.SelectedItem as Comic;
-            if (comic != null)
-                DisplayAlert("Issue # " + comic.IssueNumber, comic.Title, "OK");
-
-            ComicsListView.SelectedItem = null; // Force item unselect
+            Navigation.PushModalAsync(new ComicView(comic));
         }
     }
 }

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarvelDemo.Views.ComicView">
+  <Grid>
+    <Image Source="{Binding Comic.Thumbnail.FullPath}"
+           Aspect="AspectFit"/>
+    
+    <Button x:Name="CloseButton"
+            Text="Close"
+            VerticalOptions="End"
+            Clicked="CloseButton_OnClicked">
+      <Button.IsVisible>
+        <OnPlatform x:TypeArguments="x:Boolean" 
+                    iOS="true" 
+                    Android="false" 
+                    WinPhone="false"/>
+      </Button.IsVisible>
+    </Button>
+  </Grid>
+</ContentPage>
