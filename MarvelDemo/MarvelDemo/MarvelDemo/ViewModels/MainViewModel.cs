@@ -21,12 +21,12 @@ namespace MarvelDemo.ViewModels
         {
         }
 
-        public async Task Init()
+        public void Init()
         {
-            await LoadCharacters();
+            LoadCharacters();
         }
 
-        async Task LoadCharacters()
+        void LoadCharacters()
         {
             Characters = new ObservableCollection<Character>();
             

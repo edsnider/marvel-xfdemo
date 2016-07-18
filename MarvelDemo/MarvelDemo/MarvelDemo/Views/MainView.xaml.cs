@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace MarvelDemo.Views
 {
-    public partial class MainView : ContentPage
+    public partial class MainView
     {
         MainViewModel Vm => BindingContext as MainViewModel;
 
@@ -15,11 +15,11 @@ namespace MarvelDemo.Views
             BindingContext = new MainViewModel();
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            await Vm.Init();
+            Vm.Init();
         }
 
         private void CharactersListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
