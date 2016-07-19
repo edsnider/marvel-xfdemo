@@ -21,13 +21,16 @@ namespace MarvelDemo.Services
             _hashService = hashService;
         }
 
-        public async Task<IEnumerable<Comic>> GetComicsBySeries(int seriesId)
+        public async Task<IEnumerable<Comic>> GetComicsBySeries(int seriesId, string orderBy = null)
         {
             var ts = Guid.NewGuid().ToString();
             var hash = _hashService.CreateMd5Hash(ts + _API_PRIVATE_KEY + _API_PUBLIC_KEY);
 
+            if (string.IsNullOrWhiteSpace(orderBy))
+                orderBy = "issueNumber";
+
             var url =
-                $@"http://gateway.marvel.com/v1/public/series/{seriesId}/comics?orderBy=issueNumber&apikey={_API_PUBLIC_KEY}&hash={hash}&ts={ts}";
+                $@"http://gateway.marvel.com/v1/public/series/{seriesId}/comics?orderBy={orderBy}&apikey={_API_PUBLIC_KEY}&hash={hash}&ts={ts}";
             
             var client = new HttpClient();
             var response = await client.GetStringAsync(url);

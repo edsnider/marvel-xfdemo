@@ -6,6 +6,6 @@ namespace MarvelDemo.Services
 {
     public interface IMarvelDataService
     {
-        Task<IEnumerable<Comic>> GetComicsBySeries(int seriesId);
+        Task<IEnumerable<Comic>> GetComicsBySeries(int seriesId, string orderBy = null);
     }
 }

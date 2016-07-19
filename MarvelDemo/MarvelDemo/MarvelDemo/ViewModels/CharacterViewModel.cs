@@ -34,6 +34,17 @@ namespace MarvelDemo.ViewModels
             }
         }
 
+        string _orderComicsBy;
+        public string OrderComicsBy
+        {
+            get { return _orderComicsBy; }
+            set
+            {
+                _orderComicsBy = value;
+                OnPropertyChanged();
+            }
+        }
+
         ICommand _loadComicsCommand;
         public ICommand LoadComicsCommand
         {
@@ -70,7 +81,7 @@ namespace MarvelDemo.ViewModels
             {
                 Comics.Clear();
 
-                var comics = await _dataService.GetComicsBySeries(Character.SeriesId);
+                var comics = await _dataService.GetComicsBySeries(Character.SeriesId, OrderComicsBy);
 
                 foreach (var c in comics)
                     Comics.Add(c);

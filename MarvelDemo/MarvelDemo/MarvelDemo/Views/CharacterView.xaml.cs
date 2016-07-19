@@ -1,4 +1,5 @@
-﻿using MarvelDemo.Models;
+﻿using System;
+using MarvelDemo.Models;
 using MarvelDemo.Services;
 using MarvelDemo.ViewModels;
 using Xamarin.Forms;
@@ -35,6 +36,14 @@ namespace MarvelDemo.Views
         {
             var comic = e.SelectedItem as Comic;
             Navigation.PushModalAsync(new ComicView(comic));
+        }
+
+        private async void Order_OnClicked(object sender, EventArgs e)
+        {
+            var sort = await DisplayActionSheet("Order comics by", "Cancel", null, "Issue #", "Title");
+
+            Vm.OrderComicsBy = sort == "Title" ? "title" : "issueNumber";
+            Vm.LoadComicsCommand.Execute(null);
         }
     }
 }
