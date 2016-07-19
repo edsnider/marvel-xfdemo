@@ -50,6 +50,9 @@
     <Compile Include="ViewModels\CharacterViewModel.cs" />
     <Compile Include="ViewModels\ComicViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CharacterView.xaml.cs">
       <DependentUpon>CharacterView.xaml</DependentUpon>
     </Compile>
@@ -118,6 +121,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ComicView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AboutView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
