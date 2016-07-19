@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarvelDemo.Views.AboutView"
+             Title="About this App">
+  <StackLayout Margin="20" 
+               HorizontalOptions="Start"
+               VerticalOptions="Start">
+    <Label Text="This app was built to demostrate building native iOS and Android apps with the Xamarin platform and the Xamarin.Forms toolkit."
+           LineBreakMode="WordWrap"
+           FontSize="12"/>
+    <Label Text="Developed by: Ed Snider (@edsnider)"
+           LineBreakMode="WordWrap"
+           FontSize="12"
+           Margin="0,20,0,0"/>
+    <Label Text="The sample data used in this app is provided by Marvel via the Marvel Comics API. For more information about the Marvel Comics API and how to use it visit developer.marvel.com."
+           LineBreakMode="WordWrap"
+           FontSize="12"
+           Margin="0,20,0,0"/>
+    <Label Text="The icons used in this app are provided by Icons8, distributed under the Creative Commons Attribute-NoDerivs 3.0 Unported license."
+           LineBreakMode="WordWrap"
+           FontSize="12"
+           Margin="0,20,0,0"/>
+    <Label Text="Data provided by Marvel. © 2014 Marvel"
+           FontSize="9"
+           Margin="0,20,0,0"/>
+    <Button x:Name="MarvelLinkButton"
+            Text="Visit developer.marvel.com"
+            FontSize="10"
+            Margin="0,20,0,0"
+            Clicked="MarvelLinkButton_OnClicked"/>
+    <Button x:Name="Icons8LinkButton"
+            Text="Visit icons8.com"
+            FontSize="10"
+            Margin="0,20,0,0"
+            Clicked="Icons8LinkButton_OnClicked"/>
+
+  </StackLayout>
+</ContentPage>
