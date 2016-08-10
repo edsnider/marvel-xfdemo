@@ -1,4 +1,5 @@
-﻿using MarvelDemo.Models;
+﻿using System;
+using MarvelDemo.Models;
 using MarvelDemo.ViewModels;
 using Xamarin.Forms;
 
@@ -26,6 +27,11 @@ namespace MarvelDemo.Views
         {
             var character = e.SelectedItem as Character;
             Navigation.PushAsync(new CharacterView(character));
+        }
+
+        private void AboutButton_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new AboutView());
         }
     }
 }

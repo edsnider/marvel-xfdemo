@@ -3,17 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MarvelDemo.Views.CharacterView"
              Title="{Binding Character.Name}">
-  <ContentPage.ToolbarItems>
-    <ToolbarItem Text="Order By"
-                 Icon="Sort.png"
-                 Clicked="Order_OnClicked"/>
-  </ContentPage.ToolbarItems>
   <ListView x:Name="ComicsListView"
             ItemsSource="{Binding Comics}"
-            ItemSelected="ComicsListView_OnItemSelected"
-            IsPullToRefreshEnabled="True"
-            RefreshCommand="{Binding LoadComicsCommand}"
-            IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+            ItemSelected="ComicsListView_OnItemSelected">
     <ListView.ItemTemplate>
       <DataTemplate>
         <TextCell Text="{Binding Title}"
