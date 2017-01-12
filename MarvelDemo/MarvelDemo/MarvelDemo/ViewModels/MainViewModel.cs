@@ -38,7 +38,7 @@ namespace MarvelDemo.ViewModels
                 IconPath = "ironman_52.png",
                 SeriesId = 2029,
                 Thumbnail =
-                    new Image {Path = "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55", Extension = "jpg"}
+                    new Image {Path = "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55/standard_medium", Extension = "jpg"}
             });
             Characters.Add(new Character
             {
@@ -47,7 +47,7 @@ namespace MarvelDemo.ViewModels
                 IconPath = "captainamerica_52.png",
                 SeriesId = 1996,
                 Thumbnail =
-                    new Image {Path = "http://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087", Extension = "jpg"}
+                    new Image {Path = "http://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087/standard_medium", Extension = "jpg"}
             });
             Characters.Add(new Character
             {
@@ -56,7 +56,7 @@ namespace MarvelDemo.ViewModels
                 IconPath = "thor_52.png",
                 SeriesId = 2083,
                 Thumbnail =
-                    new Image {Path = "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350", Extension = "jpg"}
+                    new Image {Path = "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/5269657a74350/standard_medium", Extension = "jpg"}
             });
         }
     }
