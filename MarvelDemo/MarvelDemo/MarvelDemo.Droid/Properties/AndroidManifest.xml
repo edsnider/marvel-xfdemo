@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0.0" package="net.edsnider.marveldemo">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="$safeprojectname$"
-               android:theme="@style/MyTheme"/>
+	<application android:label="Marvel Demo" android:theme="@style/MyTheme" />
 </manifest>
